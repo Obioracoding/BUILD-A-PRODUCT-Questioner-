@@ -84,6 +84,11 @@ header nav{
 	margin-top: 10px;
 }
 
+header .highlight, header .current a{
+	color: #e8491d;
+	font-weight: bold;
+}
+
 header a:hover{
 	color: #cccccc;
 	font-weight: bold;
@@ -156,16 +161,18 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 
 /* PROFILE */
 
-#profile{
-	margin-top: 20px;
+aside#profile{
+	float: right;
+	width: 30%;
+	margin-top: 10px;
 }
 
-#profile .card{
-	float: right;
-	text-align: center;
-	width: 30%;
-	padding: 10px;
+.card{
 	background: #35424a;
+	color: #ffffff;
+	padding: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #profile .card img{
