@@ -151,6 +151,8 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 	float: right;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	/*width: 400px;
+	background-color: red;*/
 }
 
 #poster input[type="text"]{
@@ -185,4 +187,24 @@ footer{
 	color: #ffffff;
 	background-color: #e8491d;
 	text-align: center;
+}
+
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
 }
