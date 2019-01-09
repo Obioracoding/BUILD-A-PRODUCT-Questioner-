@@ -1,0 +1,32 @@
+{
+  "name": "product-questioner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "design.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel server.js --out-dir build",
+    "dev-start": "babel-watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Obioracoding/PRODUCT-Questioner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Obioracoding/PRODUCT-Questioner/issues"
+  },
+  "homepage": "https://github.com/Obioracoding/PRODUCT-Questioner#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "moment": "^2.23.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.8",
+    "eslint": "^5.12.0"
+  }
+}
