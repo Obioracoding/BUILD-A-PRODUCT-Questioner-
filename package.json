@@ -1,18 +1,19 @@
 {
   "name": "product-questioner",
   "version": "1.0.0",
-  "description": "",
-  "main": "design.js",
+  "description": "An API to manage student record",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require babel-register src/test/*.js --exit",
     "build": "babel server.js --out-dir build",
-    "dev-start": "babel-watch server.js"
+    "dev-start": "babel-watch server.js",
+    "dev": "nodemon --exec babel-node --preset babel-preset-env ./server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Obioracoding/PRODUCT-Questioner.git"
   },
-  "author": "",
+  "author": "Agbasiere Obiora",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Obioracoding/PRODUCT-Questioner/issues"
@@ -27,6 +28,10 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.8",
-    "eslint": "^5.12.0"
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "eslint": "^5.12.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9"
   }
 }
