@@ -7,7 +7,7 @@ const Rsvp = {
    * @param {object} res
    * @returns {object} rsvp object 
    */
-  create(req, res) {
+  createRsvp(req, res) {
     if (!req.body.response) {
       return res.status(400).send({'message': 'All fields are required'})
     }
@@ -20,7 +20,7 @@ const Rsvp = {
    * @param {object} res 
    * @returns {object} rsvps array
    */
-  getAll(req, res) {
+  getAllRsvp(req, res) {
     const Rsvps = rsvpModel.findAll();
     return res.status(200).send(Rsvp);
   },
@@ -30,7 +30,7 @@ const Rsvp = {
    * @param {object} res
    * @returns {object} rsvp object
    */
-  getOne(req, res) {
+  getOneRsvp(req, res) {
     const Rsvp = rsvpModel.findOne(req.params.id);
     if (!rsvp) {
       return res.status(404).send({'message': 'meetup not found'});
@@ -43,21 +43,21 @@ const Rsvp = {
    * @param {object} res 
    * @returns {object} updated rsvp
    */
-  update(req, res) {
-    const updatedRsvp = rsvpModel.findOne(req.params.id);
+  updateRsvp(req, res) {
+    const updateRsvp = rsvpModel.findOne(req.params.id);
     if (!rsvp) {
       return res.status(404).send({'message': 'meetup not found'});
     }
-    const updatedRsvp = rsvpModel.update(req.params.id, req.body)
-    return res.status(200).send(updatedRsvp);
+    const updateRsvp = rsvpModel.update(req.params.id, req.body)
+    return res.status(200).send(updateRsvp);
   },
   /**
    * 
    * @param {object} req 
    * @param {object} res 
-   * @returns {void} return statuc code 204 
+   * @returns {void} return status code 204 
    */
-  delete(req, res) {
+  deleteRsvp(req, res) {
     const deleteRsvp = rsvpModel.findOne(req.params.id);
     if (!rsvp) {
       return res.status(404).send({'message': 'rsvp not found'});

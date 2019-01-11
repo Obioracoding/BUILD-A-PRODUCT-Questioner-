@@ -13,7 +13,7 @@ class Rsvp {
    * 
    * @returns {object} rsvp object
    */
-  create(data) {
+  createRsvp(data) {
     const newRsvp = {
       "id" : uuid.v4(),
       "meetup_id" : uuid.v4(),
@@ -28,13 +28,13 @@ class Rsvp {
    * @param {uuid} id
    * @returns {object} rsvp object
    */
-  findOne(id) {
+  findOneRsvp(id) {
     return this.rsvps.find(rsvp => rsvp.id === id);
   }
   /**
    * @returns {object} returns all rsvps
    */
-  findAll() {
+  findAllRsvp() {
     return this.rsvps;
   }
   /**
@@ -42,22 +42,17 @@ class Rsvp {
    * @param {uuid} id
    * @param {object} data 
    */
-  update(id, data) {
+  updateRsvp(id, data) {
     const rsvp = this.findOne(id);
     const index = this.rsvps.indexOf(Rsvp);
     this.rsvps[index].response = data['response'] || rsvp.response;
-    //this.meetups[index].location = data['location'] || meetup.location;
-    //this.meetups[index].createdBy = data['createdBy'] || meetup.createdBy;
-    //this.meetups[index].topic = data['topic'] || meetup.topic;
-    //this.meetups[index].happeningOn = data['happeningOn'] || meetup.happeningOn;
-    //this.meetups[index].Tags = data['Tags'] || meetup.Tags;
     return this.rsvps[index];
   }
   /**
    * 
    * @param {uuid} id 
    */
-  delete(id) {
+  deleteRsvp(id) {
     const rsvp = this.findOne(id);
     const index = this.rsvps.indexOf(rsvp);
     this.rsvps.splice(index, 1);

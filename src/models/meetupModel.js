@@ -13,7 +13,7 @@ class Meetup {
    * 
    * @returns {object} meetup object
    */
-  create(data) {
+  createMeetup(data) {
     const newMeetup = {
       "id" : uuid.v4(),
       "createdOn" : new Date(),
@@ -31,13 +31,13 @@ class Meetup {
    * @param {uuid} id
    * @returns {object} meetup object
    */
-  findOne(id) {
+  findOneMeetup(id) {
     return this.meetups.find(meetup => meetup.id === id);
   }
   /**
    * @returns {object} returns all meetups
    */
-  findAll() {
+  findAllMeetup() {
     return this.meetups;
   }
   /**
@@ -45,7 +45,7 @@ class Meetup {
    * @param {uuid} id
    * @param {object} data 
    */
-  update(id, data) {
+  updateMeetup(id, data) {
     const meetup = this.findOne(id);
     const index = this.meetups.indexOf(meetup);
     this.meetups[index].createdOn = data['createdOn'] || meetup.createdOn;
@@ -60,7 +60,7 @@ class Meetup {
    * 
    * @param {uuid} id 
    */
-  delete(id) {
+  deleteMeetup(id) {
     const meetup = this.findOne(id);
     const index = this.meetups.indexOf(meetup);
     this.meetups.splice(index, 1);

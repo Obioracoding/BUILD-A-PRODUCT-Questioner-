@@ -13,16 +13,16 @@ class User {
    * 
    * @returns {object} user object
    */
-  create(data) {
+  createUser(data) {
     const newUser = {
       "id" : uuid.v4(),
-      “firstName” :​ ​data.firstName || '',
+      "firstName" :​ ​data.firstName || '',
       "lastName" : data.lastName || '',
       "otherName" : data.otherName || '',
       "email" : data.email || '',
       "phoneNumber" : data.phoneNumber || '',
       "userName" : data.userName || '',
-      "registeredOn" : new Date();
+      "registeredOn" : new Date()
     };
     this.users.push(newUser);
     return newUser
@@ -32,13 +32,13 @@ class User {
    * @param {uuid} id
    * @returns {object} user object
    */
-  findOne(id) {
+  findOneUser(id) {
     return this.users.find(user => user.id === id);
   }
   /**
    * @returns {object} returns all users
    */
-  findAll() {
+  findAllUsers() {
     return this.users;
   }
   /**
@@ -46,7 +46,7 @@ class User {
    * @param {uuid} id
    * @param {object} data 
    */
-  update(id, data) {
+  updateUser(id, data) {
     const user = this.findOne(id);
     const index = this.users.indexOf(user);
     this.users[index].firstName = data['firstName'] || user.firstName;
@@ -61,7 +61,7 @@ class User {
    * 
    * @param {uuid} id 
    */
-  delete(id) {
+  deleteUser(id) {
     const user = this.findOne(id);
     const index = this.users.indexOf(user);
     this.users.splice(index, 1);

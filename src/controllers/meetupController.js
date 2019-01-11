@@ -7,7 +7,7 @@ const Meetup = {
    * @param {object} res
    * @returns {object} meetup object 
    */
-  create(req, res) {
+  createMeetup(req, res) {
     if (!req.body.topic && !req.body.location && !req.body.Tags) {
       return res.status(400).send({'message': 'All fields are required'})
     }
@@ -20,7 +20,7 @@ const Meetup = {
    * @param {object} res 
    * @returns {object} meetups array
    */
-  getAll(req, res) {
+  getAllMeetup(req, res) {
     const meetups = meetupModel.findAll();
     return res.status(200).send(meetups);
   },
@@ -30,7 +30,7 @@ const Meetup = {
    * @param {object} res
    * @returns {object} meetup object
    */
-  getOne(req, res) {
+  getOneMeetup(req, res) {
     const meetup = meetupModel.findOne(req.params.id);
     if (!meetup) {
       return res.status(404).send({'message': 'meetup not found'});
@@ -43,13 +43,13 @@ const Meetup = {
    * @param {object} res 
    * @returns {object} updated meetup
    */
-  update(req, res) {
+  updateMeetup(req, res) {
     const meetup = meetupModel.findOne(req.params.id);
     if (!meetup) {
       return res.status(404).send({'message': 'meetup not found'});
     }
-    const updatedMeetup = meetupModel.update(req.params.id, req.body)
-    return res.status(200).send(updatedMeetup);
+    const updateMeetup = meetupModel.update(req.params.id, req.body)
+    return res.status(200).send(updateMeetup);
   },
   /**
    * 
@@ -57,13 +57,13 @@ const Meetup = {
    * @param {object} res 
    * @returns {void} return statuc code 204 
    */
-  delete(req, res) {
+  deleteMeetup(req, res) {
     const meetup = meetupModel.findOne(req.params.id);
     if (!meetup) {
       return res.status(404).send({'message': 'meetup not found'});
     }
-    const ref = meetupModel.delete(req.params.id);
-    return res.status(204).send(ref);
+    const meetup = meetupModel.delete(req.params.id);
+    return res.status(204).send(meetup);
   }
 }
 
