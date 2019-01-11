@@ -1,4 +1,4 @@
-import QuestionModel from '../models/Question';
+import questionModel from '../models/questionModel';
 
 const Question = {
   /**
@@ -11,7 +11,7 @@ const Question = {
     if (!req.body.title) {
       return res.status(400).send({'message': 'All fields are required'})
     }
-    const question = QuestionModel.create(req.body);
+    const question = questionModel.create(req.body);
     return res.status(201).send(question);
   },
   /**
@@ -21,7 +21,7 @@ const Question = {
    * @returns {object} questions array
    */
   getAll(req, res) {
-    const questions = QuestionModel.findAll();
+    const questions = questionModel.findAll();
     return res.status(200).send(questions);
   },
   /**
@@ -31,7 +31,7 @@ const Question = {
    * @returns {object} question object
    */
   getOne(req, res) {
-    const question = QuestionModel.findOne(req.params.id);
+    const question = questionModel.findOne(req.params.id);
     if (!question) {
       return res.status(404).send({'message': 'question not found'});
     }
@@ -44,26 +44,36 @@ const Question = {
    * @returns {object} updated question
    */
   update(req, res) {
-    const question = QuestionModel.findOne(req.params.id);
+    const question = questionModel.findOne(req.params.id);
     if (!question) {
       return res.status(404).send({'message': 'question not found'});
     }
-    const updatedQuestion = QuestionModel.update(req.params.id, req.body)
+    const updatedQuestion = questionModel.update(req.params.id, req.body)
     return res.status(200).send(updatedQuestion);
   },
   /**
    * 
    * @param {object} req 
    * @param {object} res 
-   * @returns {void} return statuc code 204 
+   * @returns {void} return status code 204 
    */
   delete(req, res) {
-    const question = QuestionModel.findOne(req.params.id);
+    const question = questionModel.findOne(req.params.id);
     if (!question) {
       return res.status(404).send({'message': 'question not found'});
     }
-    const ref = QuestionModel.delete(req.params.id);
+    const ref = questionModel.delete(req.params.id);
     return res.status(204).send(ref);
+  },
+
+  upvote(req, res) {
+    const question = questionModel.findOne(req.params.id);
+    question.votes = question.votes++;
+    return res.status(200)
+      .send({
+        status: 200,
+        data: [question]
+      });
   }
 }
 

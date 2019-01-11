@@ -1,4 +1,4 @@
-import RsvpModel from '../models/Rsvp';
+import rsvpModel from '../models/rsvpModel';
 
 const Rsvp = {
   /**
@@ -11,8 +11,8 @@ const Rsvp = {
     if (!req.body.response) {
       return res.status(400).send({'message': 'All fields are required'})
     }
-    const rsvp = RsvpModel.create(req.body);
-    return res.status(201).send(rsvp);
+    const Rsvp = rsvpModel.create(req.body);
+    return res.status(201).send(Rsvp);
   },
   /**
    * 
@@ -21,8 +21,8 @@ const Rsvp = {
    * @returns {object} rsvps array
    */
   getAll(req, res) {
-    const rsvps = RsvpModel.findAll();
-    return res.status(200).send(rsvp);
+    const Rsvps = rsvpModel.findAll();
+    return res.status(200).send(Rsvp);
   },
   /**
    * 
@@ -31,11 +31,11 @@ const Rsvp = {
    * @returns {object} rsvp object
    */
   getOne(req, res) {
-    const rsvp = RsvpModel.findOne(req.params.id);
+    const Rsvp = rsvpModel.findOne(req.params.id);
     if (!rsvp) {
       return res.status(404).send({'message': 'meetup not found'});
     }
-    return res.status(200).send(rsvp);
+    return res.status(200).send(Rsvp);
   },
   /**
    * 
@@ -44,11 +44,11 @@ const Rsvp = {
    * @returns {object} updated rsvp
    */
   update(req, res) {
-    const rsvp = RsvpModel.findOne(req.params.id);
+    const updatedRsvp = rsvpModel.findOne(req.params.id);
     if (!rsvp) {
       return res.status(404).send({'message': 'meetup not found'});
     }
-    const updatedRsvp = MeetupModel.update(req.params.id, req.body)
+    const updatedRsvp = rsvpModel.update(req.params.id, req.body)
     return res.status(200).send(updatedRsvp);
   },
   /**
@@ -58,12 +58,12 @@ const Rsvp = {
    * @returns {void} return statuc code 204 
    */
   delete(req, res) {
-    const rsvp = RsvpModel.findOne(req.params.id);
+    const deleteRsvp = rsvpModel.findOne(req.params.id);
     if (!rsvp) {
       return res.status(404).send({'message': 'rsvp not found'});
     }
-    const ref = MeetupModel.delete(req.params.id);
-    return res.status(204).send(ref);
+    const deleteRsvp = rsvpModel.delete(req.params.id);
+    return res.status(204).send(deleteRsvp);
   }
 }
 
