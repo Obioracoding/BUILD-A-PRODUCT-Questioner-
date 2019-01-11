@@ -62,8 +62,8 @@ const Meetup = {
     if (!meetup) {
       return res.status(404).send({'message': 'meetup not found'});
     }
-    const meetup = meetupModel.delete(req.params.id);
-    return res.status(204).send(meetup);
+    const ref = meetupModel.delete(req.params.id);
+    return res.status(204).send(ref);
   }
 }
 

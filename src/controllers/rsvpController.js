@@ -46,10 +46,10 @@ const Rsvp = {
   updateRsvp(req, res) {
     const updateRsvp = rsvpModel.findOne(req.params.id);
     if (!rsvp) {
-      return res.status(404).send({'message': 'meetup not found'});
+      return res.status(404).send({'message': 'rsvp not found'});
     }
-    const updateRsvp = rsvpModel.update(req.params.id, req.body)
-    return res.status(200).send(updateRsvp);
+    const updatedRsvp = rsvpModel.update(req.params.id, req.body)
+    return res.status(200).send(updatedRsvp);
   },
   /**
    * 
@@ -62,8 +62,8 @@ const Rsvp = {
     if (!rsvp) {
       return res.status(404).send({'message': 'rsvp not found'});
     }
-    const deleteRsvp = rsvpModel.delete(req.params.id);
-    return res.status(204).send(deleteRsvp);
+    const ref = rsvpModel.delete(req.params.id);
+    return res.status(204).send(ref);
   }
 }
 

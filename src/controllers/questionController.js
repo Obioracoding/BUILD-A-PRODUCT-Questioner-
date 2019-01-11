@@ -71,8 +71,8 @@ const Question = {
           'message': 'question not found'
         });
     }
-    const question = questionModel.delete(req.params.id);
-    return res.status(204).send(question);
+    const ref = questionModel.delete(req.params.id);
+    return res.status(204).send(ref);
   },
 
   upvoteQuestion(req, res) {
