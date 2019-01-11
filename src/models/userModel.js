@@ -1,3 +1,4 @@
+//Reference: Code base for controllers and models received from tutorials from Olawale Aladeusi on codementor
 import moment from 'moment';
 import uuid from 'uuid';
 
