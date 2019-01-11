@@ -1,3 +1,4 @@
+//Reference: Code base for controllers and models received from tutorials from Olawale Aladeusi on codementor
 import moment from 'moment';
 import uuid from 'uuid';
 
@@ -13,7 +14,7 @@ class Question {
    * 
    * @returns {object} question object
    */
-  create(data) {
+  createQuestion(data) {
     const newQuestion = {
       "id" : uuid.v4(),
       "createdOn" : new Date(),
@@ -30,13 +31,13 @@ class Question {
    * @param {uuid} id
    * @returns {object} question object
    */
-  findOne(id) {
+  findOneQuestion(id) {
     return this.questions.find(question => question.id === id);
   }
   /**
    * @returns {object} returns all questions
    */
-  findAll() {
+  findAllQuestion() {
     return this.questions;
   }
   /**
@@ -44,7 +45,7 @@ class Question {
    * @param {uuid} id
    * @param {object} data 
    */
-  update(id, data) {
+  updateQuestion(id, data) {
     const question = this.findOne(id);
     const index = this.questions.indexOf(question);
     this.questions[index].createdOn = data['createdOn'] || question.createdOn;
@@ -59,7 +60,7 @@ class Question {
    * 
    * @param {uuid} id 
    */
-  delete(id) {
+  deleteQuestion(id) {
     const question = this.findOne(id);
     const index = this.questions.indexOf(question);
     this.questions.splice(index, 1);
